@@ -15,8 +15,7 @@ This project demonstrates using the Java Worker with Omnis Studio 11.2 to perfor
 2. Add OmnisCalls to your local maven repository (see section below)
 3. Run `mvn package` in the javaworkerexample directory
 4. Copy target/javaworkerexample-1.0.jar and target/lib to omnis-writeable-files-folder/javaworker/JavaWorkerExample
-5. Open the included Omnis library
-6. Use the program to import and transform an image
+5. Open the included Omnis library (available as both .lbs and JSON)
 
 ### Adding OmnisCalls
 OmnisCalls is distributed as part of your Omnis installation, and is not available from Maven Central. Since its a dependency needed for compilation, it must be made available to Maven. Best practice is to add the jar file to your local maven repository. This allows the Java project to compile correctly, without distributing OmnisCalls alongside it.  
