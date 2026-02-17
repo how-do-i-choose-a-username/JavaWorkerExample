@@ -5,6 +5,7 @@ import java.util.Map;
 
 import net.omnis.OmnisCalls.OModule;
 import net.omnis.OmnisCalls.Response;
+import net.omnis.OmnisCalls.SendError;
 import net.omnis.OmnisCalls.SendResponse;
 
 /**
@@ -52,9 +53,20 @@ public class WorkerInterface extends OModule {
         // Do the actual processing
         String outputImage = ImageProcessing.ProcessBase64Image(imageData, scale, rotation);
 
-        // Pack the processed image back into a map to send to Omnis
-        Map<String, Object> data = new HashMap<>();
-        data.put("imageData", outputImage);
-        return new SendResponse(data);
+        // Response object to return to Omnis
+        Response response;
+        if (!outputImage.isEmpty()) {
+            // Pack the processed image back into a map to send to Omnis
+            Map<String, Object> data = new HashMap<>();
+            data.put("imageData", outputImage);
+            response = new SendResponse(data);
+        } else {
+            // No image data returned, so return an error to Omnis
+            Map<String, Object> data = new HashMap<>();
+            data.put("errorMessage", "No image data was returned, ensure an image was provided.");
+            response = new SendError(data);
+        }
+
+        return response;
     }
 }
