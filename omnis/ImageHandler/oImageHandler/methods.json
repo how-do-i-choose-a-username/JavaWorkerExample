@@ -1,0 +1,61 @@
+[
+	{
+		"name": "$construct",
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$startWorker",
+		"order": 3,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$transformImage",
+		"order": 4,
+		"pvardefs": [
+			{
+				"name": "ppImage",
+				"order": 1,
+				"type": "kPicture",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1
+			},
+			{
+				"name": "pnScale",
+				"order": 2,
+				"type": "kNumber",
+				"subtype": "kFloatdp",
+				"sublen": 0,
+				"param": 2
+			},
+			{
+				"name": "pnRotation",
+				"order": 3,
+				"type": "kNumber",
+				"subtype": "kFloatdp",
+				"sublen": 0,
+				"param": 3
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "vpTransformedImage",
+				"order": 4,
+				"type": "kPicture",
+				"subtype": 0,
+				"sublen": 0
+			}
+		]
+	}
+]

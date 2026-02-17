@@ -1,0 +1,6 @@
+# Calculate how much space the jpeg controls have
+Calculate vnImageWidth as ($cinst.$width-($cinst.$objs.grpControls.$objs.btnLoad.$width+$cinst.$objs.grpControls.$objs.btnLoad.$left*2))/2
+
+# Set the size of each jpeg control
+Calculate $cinst.$objs.picInitial.$width as vnImageWidth
+Calculate $cinst.$objs.picResult.$width as vnImageWidth

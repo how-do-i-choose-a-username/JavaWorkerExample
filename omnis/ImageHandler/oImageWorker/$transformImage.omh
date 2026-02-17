@@ -1,0 +1,21 @@
+# Pack the parameters, make the call to the underlying Java code, then return the result image
+
+# Clear the return value to prevent accidentaly returning wrong data
+Calculate ipReturnImage as #NULL
+
+# Build a row which contains all of our parameters, it gets converted to JSON and sent to the worker
+Calculate vrParams.picture as OXML.$base64encode(ppImage)
+Calculate vrParams.scale as pnScale
+Calculate vrParams.rotation as pnRotation
+
+# Actually call our worker method
+# - Module to use, which identifies the Java class we should call our function in
+# - Method to call within that class (may have many methods for different funtions)
+# - Parameters to pass in to our worker
+# - Whether the worker call should run syncronously. I have this true, so I get a call to $methodreturn before execution continues here
+# - Error text in case the worker call fails
+# - Tag is unset here, since this example doesn't need it. Could be used to identify a batch job
+Do $cinst.$callmethod(isModule,'TransformImage',vrParams,kTrue,vsErrorText)
+
+# This value is set by $methodreturn. Since the worker call waited for completion before continuing, we know this value will be set
+Quit method ipReturnImage

@@ -1,0 +1,40 @@
+{
+	"classtype": "kObjectclass",
+	"omnisversion": "11.2",
+	"omnisbuild": 112040173,
+	"internalversion": 31,
+	"designtaskname": "Startup_Task",
+	"cvardefs": [
+		{
+			"name": "coImageWorker",
+			"order": 1,
+			"type": "kObjectref",
+			"subtype": "oImageWorker",
+			"sublen": 0
+		}
+	],
+	"ivardefs": [
+
+	],
+	"properties": {
+		"canremotedebugwhenlocked": false,
+		"collectperformancedata": false,
+		"componenticon": 0,
+		"componentinfo": {
+
+		},
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2026-02-16 16:05:28",
+		"desc": "",
+		"editor": "",
+		"editordata": "",
+		"external": true,
+		"issupercomponent": false,
+		"moddate": "2026-02-17 12:04:17",
+		"selfcontained": false,
+		"showascheckedout": false,
+		"userinfo": "",
+		"vcsrevision": 0,
+		"version": ""
+	}
+}

@@ -1,0 +1,2 @@
+On evResized,evMaximized,evRestored
+	Do $cinst.$resizeJpegControls()

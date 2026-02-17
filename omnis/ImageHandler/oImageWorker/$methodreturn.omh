@@ -1,0 +1,3 @@
+# The worker has successfully returned. Capture the return value in a variable we can return via the $transformImage method
+# The response includes the method called, and an optional tag. These can be used to determine which worker call generated this event in a more complex scenario
+Calculate ipReturnImage as OXML.$base64decode(pResults.imageData)

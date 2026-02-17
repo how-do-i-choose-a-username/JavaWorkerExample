@@ -1,0 +1,18 @@
+On evClick ## Event Parameters - pRow( Itemreference )
+	Do FileOps.$getfilename(vsFilePath,'Please select an image','Picture|*.png;*.jpeg')
+	
+	If not(isclear(vsFilePath))
+		Do FileOps.$readfile(vsFilePath,vbTemp) Returns vnCode
+		# Convert the input image to JPEG, since thats whats being used to display it on the interface (and it is a more compact format)
+		# This does hurt the image quality, if you want to work with PNGs instead that remains an option (since the underlying worker is indifferent)
+		# You would need to replace the JPEG Controls with Picture Controls instead
+		Calculate vsCurFormat as pictformat(vbTemp)
+		If vsCurFormat<>'JPEG'
+			OK message Image is not JPEG {The image will be converted to the JPEG format. Image quality may be reduced.}
+			Calculate vbTemp as pictconvto(vsCurFormat,vbTemp,'JPEG')
+		End If
+		# Set the interface to show this image
+		Calculate ipInitialImage as vbTemp
+	End If
+	
+	Do $cinst.$redraw()

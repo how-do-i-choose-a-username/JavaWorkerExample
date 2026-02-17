@@ -1,0 +1,2 @@
+# Define the Java module here since in practice we may be using the same module many times
+Calculate isModule as 'au.com.logicaldevelopments.javaworkerexample.WorkerInterface'

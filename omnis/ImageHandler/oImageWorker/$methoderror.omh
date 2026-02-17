@@ -1,0 +1,6 @@
+# An error occured. This is because Omnis failed to call the worker, or the worker returned a SendError response
+# Examples of each error:
+# Failed to call the worker: Image data was too large, using a smaller image resolved this issue (if this becomes an issue in production consider storing the images in an intermediate location)
+# SendError response: Image provided to Java was blank, such as when an initial image hasn't been loaded. This could be fixed with validation in oImageHandler before calling the worker.
+
+Breakpoint [pError]

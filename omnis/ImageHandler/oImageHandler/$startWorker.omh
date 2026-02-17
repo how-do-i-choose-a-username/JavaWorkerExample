@@ -1,0 +1,10 @@
+# Initalise the image worker as a singleton instance
+# Each instance of the worker needs a java instance, so its more efficient to have one instance which handles all of the calls.
+If not(coImageWorker.$validref())
+	OK message Starting JVM {Java needs to start, this may take a few moments}
+	Do $objects.oImageWorker.$newref() Returns coImageWorker
+	
+	# Actually start the worker. For this use case, we don't need any special parameters
+	Do coImageWorker.$init()
+	Do coImageWorker.$start()
+End If

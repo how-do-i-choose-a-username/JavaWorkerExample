@@ -1,0 +1,2 @@
+# Ensure the worker has been started every time this object gets initalised
+Do $cinst.$startWorker()

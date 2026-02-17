@@ -1,0 +1,6 @@
+# Worker call to do the processing
+# I'd recommend adding validation here before calling the worker, though that has been left as an exercise to the reader
+# If desired, you could also do any other processing or set up here.
+Do coImageWorker.$transformImage(ppImage,pnScale,pnRotation) Returns vpTransformedImage
+
+Quit method vpTransformedImage

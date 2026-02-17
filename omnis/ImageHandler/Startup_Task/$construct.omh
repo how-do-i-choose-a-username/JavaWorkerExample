@@ -1,0 +1,2 @@
+# Just open the main window, since thats the point of the demo
+Do $windows.wImageManipulator.$open('*',kWindowCenter)
