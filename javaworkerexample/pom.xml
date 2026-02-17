@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>au.com.logicaldevelopments</groupId>
+    <groupId>au.com.logicaldevelopments.javaworkerexample</groupId>
     <artifactId>javaworkerexample</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -15,6 +15,13 @@
     </properties>
 
     <dependencies>
+        <!-- This dependency is from the Omnis tree, see the README for how we install it to Mantis -->
+        <dependency>
+            <groupId>net.omnis</groupId>
+            <artifactId>OmnisCalls</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <!-- An open source library for image manipulation (version is the newest one in the 0.4
         range) -->
         <dependency>

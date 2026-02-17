@@ -1,10 +1,17 @@
-package au.com.logicaldevelopments;
+package au.com.logicaldevelopments.javaworkerexample;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class Main {
+    /**
+     * Program entry point. Very basic argument parsing to allow simple testing of
+     * the Java code without having to rebuild and deploy to Omnis every time a
+     * change is made.
+     * 
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
         System.out.println();
         // Show help if there are an incorrect number of parameters, or help has been
@@ -39,6 +46,14 @@ public class Main {
         }
     }
 
+    /**
+     * Test method for the image processing function.
+     * 
+     * @param inputPath  Path to read the image from
+     * @param scale      Scale to apply to the image (0 - 1)
+     * @param rotation   Rotation to apply in degrees
+     * @param outputPath Output path of the resulting image
+     */
     public static void TestImageProcessing(String inputPath, double scale, double rotation, String outputPath) {
         try {
             // Read the image from file
@@ -46,6 +61,7 @@ public class Main {
             byte[] inputImage = inputStream.readAllBytes();
             inputStream.close();
 
+            // Perform the actual processing
             byte[] outputImage = ImageProcessing.ProcessBinaryImage(inputImage, scale, rotation);
 
             // Write the image to the output

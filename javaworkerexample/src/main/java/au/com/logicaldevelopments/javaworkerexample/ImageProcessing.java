@@ -1,9 +1,10 @@
-package au.com.logicaldevelopments;
+package au.com.logicaldevelopments.javaworkerexample;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Base64;
 
 import javax.imageio.ImageIO;
 
@@ -30,12 +31,27 @@ public class ImageProcessing {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             ImageIO.write(image, "png", outputStream);
             byte[] raw = outputStream.toByteArray();
-            // String encoded = Base64.getEncoder().encodeToString(raw);
 
             return raw;
         } catch (Exception e) {
             e.printStackTrace();
             return new byte[0];
         }
+    }
+
+    /**
+     * Process Base64. I wasn't able to directly pass binary data from Omnis to
+     * Java, so a conversion process is needed.
+     * 
+     * @param inputData Input image data as Base64
+     * @param scale     Scaling to apply to the image
+     * @param rotation  Rotation to apply to the image
+     * @return
+     */
+    public static String ProcessBase64Image(String inputData, double scale, double rotation) {
+        byte[] binaryInputData = Base64.getDecoder().decode(inputData);
+        byte[] binaryOutputData = ProcessBinaryImage(binaryInputData, scale, rotation);
+        String outputData = Base64.getEncoder().encodeToString(binaryOutputData);
+        return outputData;
     }
 }
