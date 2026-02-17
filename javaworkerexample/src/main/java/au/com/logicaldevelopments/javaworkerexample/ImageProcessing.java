@@ -37,7 +37,7 @@ public class ImageProcessing {
 
             // Convert the resulting image to a binary value we can send back to Omnis
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            ImageIO.write(image, "png", outputStream);
+            ImageIO.write(image, "jpeg", outputStream);
             byte[] raw = outputStream.toByteArray();
 
             return raw;

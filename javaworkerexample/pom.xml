@@ -6,7 +6,7 @@
 
     <groupId>au.com.logicaldevelopments.javaworkerexample</groupId>
     <artifactId>javaworkerexample</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -14,8 +14,54 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <build>
+        <plugins>
+            <!-- Copy dependencies to target/lib directory -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.10.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/lib
+                            </outputDirectory>
+                            <includeScope>runtime</includeScope>
+                            <!-- Don't export OmnisCalls or its dependencies, since its already
+                            available at the target destination -->
+                            <excludeArtifactIds>OmnisCalls,gson</excludeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Configure main class in the manifest, this lets the jar file be run directly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>au.com.logicaldevelopments.javaworkerexample.Main</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
-        <!-- This dependency is from the Omnis tree, see the README for how we install it to Mantis -->
+        <!-- This dependency is from the Omnis tree, see the README for how we install it to Maven
+        (since its not available from a central repository) -->
         <dependency>
             <groupId>net.omnis</groupId>
             <artifactId>OmnisCalls</artifactId>
