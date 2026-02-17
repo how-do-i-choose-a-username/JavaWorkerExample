@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+/**
+ * Main class is used to run the program from the command line.
+ */
 public class Main {
     /**
      * Program entry point. Very basic argument parsing to allow simple testing of
@@ -30,14 +33,16 @@ public class Main {
                     """;
             System.out.println(helpMessage);
         } else {
+            // Read file paths
             String inputPath = args[0];
             String outputPath = args[3];
 
             try {
+                // Read and parse numeric values
                 double scale = Double.parseDouble(args[1]);
                 double rotation = Double.parseDouble(args[2]);
 
-                // Call our code
+                // Run the image processing function
                 TestImageProcessing(inputPath, scale, rotation, outputPath);
             } catch (NumberFormatException e) {
                 String invalidFormatMessage = "Please ensure scale and rotation are numeric values.";
@@ -47,7 +52,8 @@ public class Main {
     }
 
     /**
-     * Test method for the image processing function.
+     * Test method for the image processing function. Reads a file to binary,
+     * processes it, and writes the resulting binary back to disk.
      * 
      * @param inputPath  Path to read the image from
      * @param scale      Scale to apply to the image (0 - 1)
@@ -69,6 +75,8 @@ public class Main {
             outputStream.write(outputImage);
             outputStream.close();
         } catch (Exception e) {
+            // As this is a testing function, catch all exceptions and print them. This is
+            // usually bad practice
             e.printStackTrace();
         }
     }
