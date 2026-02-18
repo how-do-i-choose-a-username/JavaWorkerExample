@@ -59,6 +59,8 @@
         </plugins>
     </build>
 
+    <!-- This is the list of dependencies the Java project has. Add any extra dependencies here, and
+    Maven will install them for you when you next build the project. -->
     <dependencies>
         <!-- This dependency is from the Omnis tree, see the README for how we install it to Maven
         (since its not available from a central repository) -->
