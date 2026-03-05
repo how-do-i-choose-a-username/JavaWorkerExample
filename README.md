@@ -24,7 +24,7 @@ OmnisCalls is distributed as part of your Omnis installation, and is not availab
 The following command is what I used to accomplish this:  
 `mvn install:install-file -Dfile="omnis-writeable-files-folder\javaworker\OmnisCalls\OmnisCalls.jar" -DgroupId="net.omnis" -DartifactId="OmnisCalls" -Dversion="1.0.0" -Dpackaging="jar"`
 
-Maven does include a mechanism to package jar files with the project directly, however it's deprecated.
+Maven does include a mechanism to package jar files with the project directly, however it's deprecated and not recommended for use. An example is included in the pom.xml for your interest.
 
 ## Extending with your own code
 This example is designed as a starting point, to be later extended with your own code. The following notes outline some suggestions for extending this worker, or writing your own code.

@@ -70,6 +70,15 @@
             <version>1.0.0</version>
         </dependency>
 
+        <!-- The following commented out dependency is an example on how to reference a local jar file not attached to any specific project -->
+        <!-- <dependency>
+            <groupId>net.omnis</groupId>
+            <artifactId>OmnisCalls</artifactId>
+            <version>0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/path to your jar file here/OmnisCalls.jar</systemPath>
+        </dependency> -->
+
         <!-- An open source library for image manipulation (version is the newest one in the 0.4
         range) -->
         <dependency>
